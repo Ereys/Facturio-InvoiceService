@@ -14,7 +14,7 @@ public class InvoiceManagerResponseEntity {
     public static <T> ResponseEntity<?> OKResponse(int status, T data){
         // creer un objet JSON
         JSONObject response = new JSONObject();
-        response.put("message", data); // ajouter la donnee
+        response.put("data", data); // ajouter la donnee
         response.put("status", status); // aucune erreur
         return org.springframework.http.ResponseEntity.status(status).body(response.toMap()); // ajouter toMap pour convertir en string
     }
