@@ -27,4 +27,11 @@ public class ClientServiceImpl implements ClientServiceInterface{
     public List<Client> getAllClient() {
         return this.clientRepo.findAll();
     }
+
+    @Override
+    public List<Client> findClientByLastnameContaining(String pattern) {
+        return this.clientRepo.findClientByLastnameStartsWith(pattern);
+    }
 }
+
+

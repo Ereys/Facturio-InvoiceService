@@ -1,9 +1,6 @@
 package com.facturio.invoicemanager.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Getter
@@ -17,8 +14,14 @@ public class Client {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idClient;
+
+    @Column(nullable = false)
     private String lastname;
+
+    @Column(nullable = false)
     private String firstname;
+    @Column(nullable = false)
     private String email;
+    @Column(nullable = false)
     private String address;
 }

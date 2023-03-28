@@ -20,13 +20,18 @@ public class ClientController {
     @Autowired
     private ClientServiceInterface service;
 
-    @PostMapping("/createClient")
+    @PostMapping("/clients")
     public ResponseEntity<?> create(@RequestBody ClientRequestDTO client){
         return InvoiceManagerResponseEntity.OKResponse(201, this.service.createClient(client));
     }
 
-    @GetMapping("/getAllClient")
+    @GetMapping("/clients")
     public ResponseEntity<?> getAll() {
         return InvoiceManagerResponseEntity.OKResponse(200, this.service.getAllClient());
+    }
+
+    @GetMapping("/clients/searchByName/{name}")
+    public ResponseEntity<?> searchByName(@PathVariable(name = "name") String pattern) {
+        return InvoiceManagerResponseEntity.OKResponse(200, this.service.findClientByLastnameContaining(pattern));
     }
 }

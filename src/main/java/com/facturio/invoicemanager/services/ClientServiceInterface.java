@@ -11,4 +11,6 @@ public interface ClientServiceInterface {
     public Client createClient(ClientRequestDTO newClient);
     public List<Client> getAllClient();
 
+    public List<Client> findClientByLastnameContaining(String pattern);
+
 }

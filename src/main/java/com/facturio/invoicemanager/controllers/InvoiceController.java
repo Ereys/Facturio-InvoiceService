@@ -17,17 +17,17 @@ public class InvoiceController {
     @Autowired
     private InvoiceServiceInterface service;
 
-    @PostMapping("/createInvoice")
+    @PostMapping("/invoice")
     public ResponseEntity<?> create(@RequestBody Invoice newInvoice){
         return InvoiceManagerResponseEntity.OKResponse(201, this.service.createInvoice(newInvoice));
     }
 
-    @GetMapping("/getAllInvoice")
+    @GetMapping("/invoice")
     public ResponseEntity<?> getAll(){
         return InvoiceManagerResponseEntity.OKResponse(200, this.service.getAll());
     }
 
-    @GetMapping("/sortInvoiceByStatus")
+    @GetMapping("/invoice/sortInvoiceByStatus")
     public ResponseEntity<?> getAll(@RequestParam(name="status") InvoiceStatusEnum status) {
         return InvoiceManagerResponseEntity
                 .OKResponse(200, this.service.sortByStatus(status));

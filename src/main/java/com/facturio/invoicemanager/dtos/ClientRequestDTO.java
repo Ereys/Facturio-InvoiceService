@@ -10,8 +10,6 @@ import lombok.Data;
 public class ClientRequestDTO {
     private String lastname;
     private String firstname;
-
     private String email;
-
     private String address;
 }
