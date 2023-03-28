@@ -1,5 +1,6 @@
 package com.facturio.invoicemanager.services;
 
+import com.facturio.invoicemanager.dtos.ClientRequestDTO;
 import com.facturio.invoicemanager.entities.Client;
 import com.facturio.invoicemanager.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,12 @@ public class ClientServiceImpl implements ClientServiceInterface{
     private ClientRepository clientRepo;
 
     @Override
-    public Client createClient(Client newClient) {
-        return this.clientRepo.save(newClient);
+    public Client createClient(ClientRequestDTO newClient) {
+        return this.clientRepo.save(Client.builder().
+                                firstname(newClient.getFirstname())
+                                .lastname(newClient.getFirstname())
+                                .email(newClient.getEmail())
+                                .address(newClient.getAddress()).build());
     }
 
     @Override

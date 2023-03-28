@@ -1,6 +1,7 @@
 package com.facturio.invoicemanager.controllers;
 
 
+import com.facturio.invoicemanager.dtos.ClientRequestDTO;
 import com.facturio.invoicemanager.entities.Client;
 import com.facturio.invoicemanager.entities.Invoice;
 import com.facturio.invoicemanager.entities.enums.InvoiceStatusEnum;
@@ -20,12 +21,12 @@ public class ClientController {
     private ClientServiceInterface service;
 
     @PostMapping("/createClient")
-    public ResponseEntity<?> create(@RequestBody Client client){
+    public ResponseEntity<?> create(@RequestBody ClientRequestDTO client){
         return InvoiceManagerResponseEntity.OKResponse(201, this.service.createClient(client));
     }
 
     @GetMapping("/getAllClient")
-    public ResponseEntity<?> getAll(){
+    public ResponseEntity<?> getAll() {
         return InvoiceManagerResponseEntity.OKResponse(200, this.service.getAllClient());
     }
 }

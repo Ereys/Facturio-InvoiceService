@@ -28,7 +28,7 @@ public class InvoiceController {
     }
 
     @GetMapping("/sortInvoiceByStatus")
-    public ResponseEntity<?> getAll(@RequestParam InvoiceStatusEnum status) {
+    public ResponseEntity<?> getAll(@RequestParam(name="status") InvoiceStatusEnum status) {
         return InvoiceManagerResponseEntity
                 .OKResponse(200, this.service.sortByStatus(status));
     }
