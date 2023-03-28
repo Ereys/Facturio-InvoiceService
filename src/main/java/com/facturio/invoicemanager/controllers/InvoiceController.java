@@ -2,6 +2,7 @@ package com.facturio.invoicemanager.controllers;
 
 
 import com.facturio.invoicemanager.entities.Invoice;
+import com.facturio.invoicemanager.entities.enums.InvoiceStatusEnum;
 import com.facturio.invoicemanager.services.InvoiceManagerResponseEntity;
 import com.facturio.invoicemanager.services.InvoiceServiceImpl;
 import com.facturio.invoicemanager.services.InvoiceServiceInterface;
@@ -24,5 +25,11 @@ public class InvoiceController {
     @GetMapping("/getAllInvoice")
     public ResponseEntity<?> getAll(){
         return InvoiceManagerResponseEntity.OKResponse(200, this.service.getAll());
+    }
+
+    @GetMapping("/sortInvoiceByStatus")
+    public ResponseEntity<?> getAll(@RequestParam InvoiceStatusEnum status) {
+        return InvoiceManagerResponseEntity
+                .OKResponse(200, this.service.sortByStatus(status));
     }
 }

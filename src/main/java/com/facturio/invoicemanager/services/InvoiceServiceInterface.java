@@ -11,4 +11,6 @@ public interface InvoiceServiceInterface {
     public void setInvoiceStatus(Long id, InvoiceStatusEnum status);
 
     public List<Invoice> getAll();
+
+    public List<Invoice> sortByStatus(InvoiceStatusEnum enums);
 }

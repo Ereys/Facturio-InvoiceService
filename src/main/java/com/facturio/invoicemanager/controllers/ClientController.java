@@ -3,6 +3,7 @@ package com.facturio.invoicemanager.controllers;
 
 import com.facturio.invoicemanager.entities.Client;
 import com.facturio.invoicemanager.entities.Invoice;
+import com.facturio.invoicemanager.entities.enums.InvoiceStatusEnum;
 import com.facturio.invoicemanager.services.ClientServiceInterface;
 import com.facturio.invoicemanager.services.InvoiceManagerResponseEntity;
 import org.springframework.beans.factory.annotation.Autowired;

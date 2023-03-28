@@ -10,6 +10,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.time.LocalDate;
+
 @SpringBootApplication
 public class InvoicemanagerApplication {
 
@@ -24,7 +26,7 @@ public class InvoicemanagerApplication {
 			clientRepo.save(new Client(0, "Tavirani", "Awat", "awat.tavi@gmail.com", "48 rue du coquelicot"));
 			clientRepo.save(new Client(0, "test", "testoterone", "test@test.com", "52 rue du test bis"));
 
-			invoiceRepo.save(new Invoice(0, 12.0, InvoiceStatusEnum.QUOTATION));
+			invoiceRepo.save(new Invoice(0, 12.0, LocalDate.now() ,InvoiceStatusEnum.QUOTATION));
 		};
 	}
 }

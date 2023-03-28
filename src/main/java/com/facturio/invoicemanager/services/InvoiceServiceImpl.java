@@ -23,9 +23,13 @@ public class InvoiceServiceImpl implements InvoiceServiceInterface{
         Invoice target = this.invoiceRepo.findById(id).orElseThrow();
         target.setStatus(status);
     }
-
     @Override
     public List<Invoice> getAll() {
         return this.invoiceRepo.findAll();
+    }
+
+    @Override
+    public List<Invoice> sortByStatus(InvoiceStatusEnum enums) {
+        return this.invoiceRepo.findInvoiceByStatus(enums);
     }
 }
