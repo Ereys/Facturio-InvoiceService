@@ -1,6 +1,7 @@
 package com.facturio.invoicemanager.controllers;
 
 
+import com.facturio.invoicemanager.dtos.CreateInvoiceDTO;
 import com.facturio.invoicemanager.entities.Invoice;
 import com.facturio.invoicemanager.entities.enums.InvoiceStatusEnum;
 import com.facturio.invoicemanager.services.InvoiceManagerResponseEntity;
@@ -18,8 +19,12 @@ public class InvoiceController {
     private InvoiceServiceInterface service;
 
     @PostMapping("/invoices")
-    public ResponseEntity<?> create(@RequestBody Invoice newInvoice){
-        return InvoiceManagerResponseEntity.OKResponse(201, this.service.createInvoice(newInvoice));
+    public ResponseEntity<?> create(@RequestBody CreateInvoiceDTO newInvoice){
+        try {
+            return InvoiceManagerResponseEntity.OKResponse(201, this.service.createInvoice(newInvoice));
+        }catch (Exception e){
+            return InvoiceManagerResponseEntity.errorResponse(400, e.getMessage());
+        }
     }
 
     @GetMapping("/invoices")

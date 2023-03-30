@@ -26,7 +26,9 @@ public class InvoicemanagerApplication {
 			clientRepo.save(new Client(0, "Tavirani", "Awat", "awat.tavi@gmail.com", "48 rue du coquelicot"));
 			clientRepo.save(new Client(0, "test", "testoterone", "test@test.com", "52 rue du test bis"));
 
-			invoiceRepo.save(new Invoice(0, 12.0, LocalDate.now() ,InvoiceStatusEnum.QUOTATION));
+			invoiceRepo.save(new Invoice(0, 12.0, LocalDate.now() ,InvoiceStatusEnum.QUOTATION, clientRepo.findClientByLastname("Ribollet")));
+			invoiceRepo.save(new Invoice(0, 2048, LocalDate.now() ,InvoiceStatusEnum.QUOTATION, clientRepo.findClientByLastname("Ribollet")));
+			invoiceRepo.save(new Invoice(0, 22545, LocalDate.now() ,InvoiceStatusEnum.QUOTATION, clientRepo.findClientByLastname("Ribollet")));
 		};
 	}
 }
